@@ -25,6 +25,13 @@ export default function Home({ leavesData }) {
 
     // Fetch data from Xano on component mount
     useEffect(() => {
+        const urlParams = new URLSearchParams(window.location.search);
+        const page = parseInt(urlParams.get('page'), 10) || 1;
+        setUiState((prevState) => ({
+            ...prevState,
+            currentPage: page,
+        }));
+
         if (leaves.length === 0 && leavesData.length > 0) {
             setLeaves(leavesData);
         } else if (leaves.length === 0) {
@@ -139,6 +146,15 @@ export default function Home({ leavesData }) {
             searchQuery: query,
             currentPage: 1, // Reset to the first page on new search
         }));
+        sessionStorage.setItem('currentPage', 1);
+    };
+
+    const handlePageChange = (newPage) => {
+        setUiState((prevState) => ({
+            ...prevState,
+            currentPage: newPage,
+        }));
+        sessionStorage.setItem('currentPage', newPage);
     };
 
     const handleGoUp = () => {
@@ -542,7 +558,7 @@ export default function Home({ leavesData }) {
                 {isDeleteModalOpen && (
                     <div className={`${styles.modal} ${styles.nonScrollableModal}`}>
                         <div className={styles.modalContent}>
-                            <h2>Confirm Deletion</h2>
+                            <h2>Confirm Delete</h2>
                             <p>Are you sure you want to delete this record?</p>
                             <div className={styles.modalActions}>
                                 <button onClick={confirmDelete}>Yes, Delete</button>
@@ -560,6 +576,7 @@ export default function Home({ leavesData }) {
                             item={item}
                             onEdit={handleEdit}
                             onDelete={handleDelete}
+                            uiState={uiState}
                         />
                     ))}
                 </div>
