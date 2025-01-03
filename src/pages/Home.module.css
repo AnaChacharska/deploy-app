@@ -1,0 +1,245 @@
+/* Home Page Styles */
+
+.container {
+    padding: 40px;
+    font-family: 'Poppins', sans-serif;
+    background-color: #8BE4E1;
+    color: black;
+    position: relative;
+}
+
+.dark {
+    background-color: #123733;
+    color: white;
+}
+
+.title {
+    font-size: 2.8rem;
+    font-weight: 700;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.searchAddContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;
+    margin-bottom: 20px;
+}
+
+.searchBar {
+    width: 300px;
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    background-color: #ededed;
+}
+
+.addButton {
+    padding: 10px 20px;
+    font-size: 16px;
+    background: #239591;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.addButton:hover {
+    background-color: #0056b3;
+}
+
+.dark .searchBar {
+    background-color: #19635f;
+    color: white !important;
+    border: 1px solid #444;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+}
+
+.dark .grid {
+    opacity: 0.9;
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    flex-wrap: wrap;
+}
+
+.pagination button {
+    padding: 12px 20px;
+    color: white;
+    background: #239591;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+}
+
+.pagination button:hover {
+    background-color: #0056b3;
+}
+
+.dark .addButton,
+.dark .pagination button {
+    background: #10211d;
+}
+.modal {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 10;
+}
+
+.scrollableModal {
+    overflow-y: scroll;
+}
+
+.nonScrollableModal {
+    overflow-y: hidden;
+}
+
+.dark .modal {
+    z-index: 10;
+    color: #1a1a1a;
+}
+
+.modalContent {
+    background: white;
+    padding: 20px;
+    border-radius: 8px;
+    width: 90%;
+    max-width: 400px;
+}
+
+.scrollableModal .modalContent {
+    height: 80%;
+    overflow-y: scroll;
+}
+
+.modalContent h2 {
+    margin-bottom: 20px;
+}
+
+.modalContent input {
+    padding: 12px;
+    border: 1px solid #d0d4d8;
+    border-radius: 5px;
+    width: 100%;
+    margin-bottom: 15px;
+}
+
+.modalActions {
+    display: flex;
+    gap: 10px;
+    justify-content: center;
+}
+
+.modalActions button {
+    padding: 10px 20px;
+    border-radius: 5px;
+    color: white;
+    background: #239591;
+    cursor: pointer;
+}
+
+
+.successMessage {
+    background-color: #d4edda;
+    color: #155724;
+    padding: 10px;
+    margin-bottom: 20px;
+    text-align: center;
+    border: 1px solid #c3e6cb;
+    border-radius: 5px;
+}
+
+.toggleContainer {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+}
+
+.toggleSwitch {
+    position: relative;
+    display: inline-block;
+    width: 60px;
+    height: 34px;
+}
+
+.toggleSwitch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: 0.4s;
+    border-radius: 34px;
+}
+
+.slider:before {
+    position: absolute;
+    content: '';
+    height: 26px;
+    width: 26px;
+    left: 4px;
+    bottom: 4px;
+    background-color: white;
+    transition: 0.4s;
+    border-radius: 50%;
+}
+
+input:checked + .slider {
+    background-color: #2196F3;
+}
+
+input:checked + .slider:before {
+    transform: translateX(26px);
+}
+
+.goUpButton {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 50px;
+    height: 50px;
+    cursor: pointer;
+    z-index: 1000;
+    transition: transform 0.3s ease, opacity 0.3s ease;
+    opacity: 0.8;
+}
+
+.goUpButton:hover {
+    transform: scale(1.1);
+    opacity: 1;
+}
+
+.goUpButton img {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
