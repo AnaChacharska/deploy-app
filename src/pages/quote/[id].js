@@ -4,7 +4,7 @@ import axios from "axios";
 
 export default function QuoteDetail() {
     const router = useRouter();
-    const { id } = router.query;
+    const { id, page } = router.query; // Extract the page query parameter
     const [isDarkMode, setIsDarkMode] = useState(false);
     const [loading, setLoading] = useState(true);
     const [error, setError] = useState(null);
@@ -75,7 +75,7 @@ export default function QuoteDetail() {
     if (error) {
         return (
             <div className="container">
-                <div className="back-button" onClick={() => router.push("/")}>
+                <div className="back-button" onClick={() => router.push(`/?page=${page || 1}`)}>
                     Back
                 </div>
                 <h1 className="title">Error</h1>
@@ -87,7 +87,7 @@ export default function QuoteDetail() {
     if (!record) {
         return (
             <div className="container">
-                <div className="back-button" onClick={() => router.push("/")}>
+                <div className="back-button" onClick={() => router.push(`/?page=${page || 1}`)}>
                     Back
                 </div>
                 <h1 className="title">Record Not Found</h1>
@@ -117,7 +117,7 @@ export default function QuoteDetail() {
             </div>
 
             <div className="header-container">
-                <div className="back-button" onClick={() => router.push("/")}>
+                <div className="back-button" onClick={() => router.push(`/?page=${page || 1}`)}>
                     <span>&lt;Back</span>
                 </div>
                 <h1 className="title">{record.title}</h1>
